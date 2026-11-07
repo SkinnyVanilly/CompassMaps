@@ -1,0 +1,47 @@
+CompassMaps has two parts under two licences.
+
+================================================================================
+1. The map files (the .pmtiles files and catalog.json in this repository's Releases)
+================================================================================
+
+The map files contain data from OpenStreetMap.
+
+    Map data © OpenStreetMap contributors
+    https://www.openstreetmap.org/copyright
+
+OpenStreetMap data is available under the Open Database License (ODbL) 1.0:
+https://opendatacommons.org/licenses/odbl/1-0/
+
+The map files are made from the Protomaps basemap builds (https://protomaps.com), which
+are OpenStreetMap data under the ODbL, cut out per country with the pmtiles tool. They
+are offered here under the same licence, the ODbL 1.0. If you use, share or adapt them,
+keep the notice "© OpenStreetMap contributors" and follow the ODbL.
+
+Country outlines used to cut the files come from Natural Earth (public domain,
+https://www.naturalearthdata.com). They are not part of the map files.
+
+================================================================================
+2. Everything else in this repository (scripts, workflow, README, countries.json)
+================================================================================
+
+MIT License
+
+Copyright (c) 2026 SkinnyVanilly
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

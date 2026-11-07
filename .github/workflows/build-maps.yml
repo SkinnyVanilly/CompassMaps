@@ -1,0 +1,56 @@
+name: Build map files
+
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: "Only these ids, space-separated (e.g. \"no se\" or \"world\"); empty = all in countries.json"
+        required: false
+        default: ""
+      dry_run:
+        description: "Sizes only, upload nothing"
+        type: boolean
+        default: false
+  schedule:
+    - cron: "17 3 2 */3 *" # 03:17 UTC on the 2nd of every third month: fresh OpenStreetMap data
+
+permissions:
+  contents: write # create the release and upload its files
+
+concurrency:
+  group: build-maps
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.25"
+          cache: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install tools
+        run: |
+          go install github.com/protomaps/go-pmtiles@v1.31.2
+          GOBIN="$(go env GOPATH)/bin"
+          ln -sf "$GOBIN/go-pmtiles" "$GOBIN/pmtiles"
+          echo "$GOBIN" >> "$GITHUB_PATH"
+          python -m pip install --quiet shapely==2.1.1
+          "$GOBIN/pmtiles" version
+
+      - name: Build and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          ONLY: ${{ inputs.only }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+          WORK: ${{ runner.temp }}/maps
+        run: bash scripts/build.sh

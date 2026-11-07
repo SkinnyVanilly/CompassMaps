@@ -1,0 +1,11 @@
+{
+  "note": "Map files built by .github/workflows/build-maps.yml. 'ne' is the country's ADM0_A3 code in Natural Earth; 'maxzoom' is the detail level (14 keeps every footpath; the app zooms the drawing further).",
+  "world": { "id": "world", "name": "World backdrop", "file": "world-backdrop.pmtiles", "maxzoom": 6 },
+  "countries": [
+    { "id": "no", "name": "Norway", "ne": "NOR", "maxzoom": 14 },
+    { "id": "se", "name": "Sweden", "ne": "SWE", "maxzoom": 14 },
+    { "id": "dk", "name": "Denmark", "ne": "DNK", "maxzoom": 14 },
+    { "id": "fi", "name": "Finland", "ne": "FIN", "maxzoom": 14 },
+    { "id": "is", "name": "Iceland", "ne": "ISL", "maxzoom": 14 }
+  ]
+}
